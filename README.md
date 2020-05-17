@@ -6,6 +6,11 @@ I’ve used this system to water multiple plants (19 in total) during the summer
 
 ![Watering system](/media/pumpsystem.PNG)
 
+
+* [Installation](#Installation)
+* [Software installation](##Software installation)
+
+
 # Installation
 
 ## Software installation
@@ -79,7 +84,7 @@ When splicing my power adapter, I found that the solid/dashed lines on wires are
 
 I thought that this [Guide]( https://thepihut.com/blogs/raspberry-pi-tutorials/16021420-how-to-install-use-the-raspberry-pi-camera) was pretty useful. 
 
-## Introduction to architecture
+## Introduction to software architecture
 
 The watering system uses the following servers (initiated from launcher.sh):
 
@@ -94,7 +99,7 @@ The watering system uses the following ports:
 * 8000: Webcam
 * 5000: Python API
 
-![High level architecture](/media/pumpsystem.PNG)
+![High level architecture](/media/high_level_architecture.png)
 
 ## Detailed description of key parts of the software
 
@@ -119,6 +124,3 @@ The only API-endpoint that cannot be triggered from the webapp's GUI is "/stop_s
 ## Other:
 
 Some additional work to make the system even more secure remains. Would be nice to ensure that the API-endpoints of the python-server are password protected (ideally with the password of the registered user). For now, only expose port 3000 for external uses if the watering system is deployed.
-
-
-
