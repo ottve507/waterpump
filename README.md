@@ -8,7 +8,7 @@ I’ve used this system to water multiple plants (19 in total) during the summer
 
 
 * [Installation](#Installation)
-** [Software installation](##Software-installation)
+*- [Software installation](#Software-installation)
 
 
 # Installation
