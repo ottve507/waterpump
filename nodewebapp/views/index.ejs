@@ -1,0 +1,81 @@
+<% layout('layouts/layout') -%>
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+	</script>
+	<script>
+	       
+	      function stopPump() {
+	          $.ajax({
+	             url: "/stop_pump"
+	          })
+	          .done(function( data ) {
+	             console.log("Pump stopped");
+	          });
+	      }
+		  
+	      function restartServer() {
+	          $.ajax({
+	             url: "/restart_server"
+	          })
+	          .done(function( data ) {
+	             console.log("Restarting server");
+	          });
+	      }
+	      
+	      function startMyTimePump(motortime) {
+	          if (Number.isInteger(parseInt(motortime))){
+	          
+	               if (parseInt(motortime) >19){
+	                   alert("Time must be less than 20 seconds");
+	               }else{
+	                   $.ajax({
+	                       type: "POST",
+	                       url: "/start_pump_time",
+	                       data: {'time': parseInt(motortime)},
+	                       dataType: 'json'
+	                   });
+	              }
+	          } else {
+	              alert("Please enter the time in whole seconds." + Number.isInteger(motortime))
+	          }
+	      }
+	      
+	      //Water check which is called continuosly.
+	      $(document).ready(function () {
+	          function update_water_level(){
+	            $.ajax({
+	               url: "/check_water_level"
+	            })
+	            .done(function( data ) {
+	               console.log( "Sample of data:", data );
+	               $('#holder').text(data);
+	            });
+	           }
+	           
+	          var refreshId = setInterval(update_water_level, 10000);
+	          
+	      });
+	</script>
+	<title></title>
+</head>
+<body>
+	<iframe height="720px" src="http://192.168.86.250:8000/index.html" width="100%"></iframe>
+	<center>
+		<div id="API-box" style="text-align: left; margin-left:20%;">
+			<h4 style="color:RGB(2, 117, 216); white-space: nowrap; display: inline-block;"><i class="fas fa-tint" style="white-space: nowrap; display: inline-block;"></i></h4>
+			<div id="holder" style="white-space: nowrap; display: inline-block;">
+				<h4 style="color:RGB(2, 117, 216); white-space: nowrap; display: inline-block;">Loading water detection...</h4>
+			</div><br>
+			Enter time for waterpump to be on in (whole) seconds: <input id="motortime" max="25" min="1" type="number" width="50px;"><br>
+			<button class="btn btn-primary" id="HButton" onclick="startMyTimePump(document.getElementById('motortime').value)" type="button">Start water pump</button>
+			<button class="btn btn-danger" id="SButton" onclick="stopPump()" type="button">Stop water pump</button>
+			<br><br><br><br><br>
+			<button class="btn btn-danger" id="RButton" onclick="restartServer()" type="button">Restart server</button>
+			<br>
+		</div>
+	</center>
+</body>
+</html>

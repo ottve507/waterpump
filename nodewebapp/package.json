@@ -1,0 +1,36 @@
+{
+   "name": "backendserver",
+   "version": "1.0.0",
+   "description": "backendserver",
+   "main": "app.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+   },
+   "author": "Otto Velander",
+   "license": "ISC",
+   "dependencies": {
+      "async": "*",
+      "bcryptjs": "*",
+      "body-parser": "^1.19.0",
+      "connect-flash": "*",
+      "cookie-parser": "^1.4.1",
+      "crypto": "*",
+      "ejs": "*",
+      "ejs-locals": "*",
+      "express": "^4.17.1",
+      "express-handlebars": "*",
+      "express-messages": "*",
+      "express-session": "^1.17.1",
+      "express-validator": "*",
+      "jsonwebtoken": "*",
+      "mongodb": "^3.5.7",
+      "mongoose": "*",
+      "node-geocoder": "*",
+      "nodemailer": "*",
+      "passport": "*",
+      "passport-facebook": "*",
+      "passport-http": "*",
+      "passport-local": "*",
+      "request": "*"
+   }
+}
