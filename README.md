@@ -21,10 +21,10 @@ I’ve used this system to water multiple plants (19 in total) during the summer
 ## Software installation
 
 Pre-requisites:
--	Raspberry Pi (with Raspbian installed)
--	Node.js 
--	Python3 
--	Mongodb
+*	Raspberry Pi (with Raspbian installed)
+*	Node.js 
+*	Python3 
+*	Mongodb
 
 **Step 1 - Clone**: cd to /home/pi/ and git clone the project. It is important that the home directory of this project is "/home/pi/waterpump" as we will use this location for starting the different servers automatically on boot.
 
