@@ -6,14 +6,16 @@ I’ve used this system to water multiple plants (19 in total) during the summer
 
 ![Watering system](/media/pumpsystem.PNG)
 
-
 * [Installation](#Installation)
   - [Software installation](#Software-installation)
   - [Hardware installation](#Hardware-installation)
-
+* [Introduction to software architecture](#introduction-to-software-architecture)
+  - [Detailed description of key parts of the software](#Detailed-description-of-key-parts-of-the-software)
+* [Other](#Other)
 
 
 # Installation
+
 
 ## Software installation
 
@@ -48,6 +50,7 @@ The "launcher.sh" file will perform the actual initiation of servers in the back
 
 **Step 5 - Security config**: For security purposes, the authentication-secret in "waterpump/nodewebapp/config/main.js" should be changed to something else.
 
+
 ## Hardware installation
 
 The following parts are needed:
@@ -73,7 +76,6 @@ The following parts are needed:
 
 * [Hose connections – example](https://www.hydrogarden.se/odlingssystemkrukor/bevattning-pumpar/tropf-blumat-bevattningssystem/blumat-t-koppling-838mm.html)
 
-
 ### Wiring of water level sensor and motor
 
 ![Sensor](/media/water_sensor.png)
@@ -86,7 +88,8 @@ When splicing my power adapter, I found that the solid/dashed lines on wires are
 
 I thought that this [Guide]( https://thepihut.com/blogs/raspberry-pi-tutorials/16021420-how-to-install-use-the-raspberry-pi-camera) was pretty useful. 
 
-## Introduction to software architecture
+
+# Introduction to software architecture
 
 The watering system uses the following servers (initiated from launcher.sh):
 
@@ -102,6 +105,7 @@ The watering system uses the following ports:
 * 5000: Python API
 
 ![High level architecture](/media/high_level_architecture.png)
+
 
 ## Detailed description of key parts of the software
 
@@ -123,6 +127,7 @@ Some important files in the webapp:
 
 The only API-endpoint that cannot be triggered from the webapp's GUI is "/stop_server". I've chosen to not display this functionality as triggering this function by accident would stop the possibility to water the plants.
 
-## Other:
+
+# Other:
 
 Some additional work to make the system even more secure remains. Would be nice to ensure that the API-endpoints of the python-server are password protected (ideally with the password of the registered user). For now, only expose port 3000 for external uses if the watering system is deployed.
