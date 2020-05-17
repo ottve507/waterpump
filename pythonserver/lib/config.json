@@ -1,0 +1,8 @@
+{
+    "e-mail":{
+        "from_addr_username":"example@gmail.com",
+        "from_addr_password":"PassExample",
+        "from_addr_smtp":"smtp.gmail.com:587",
+        "to_addr":"to_example@gmail.com"
+    }
+}
