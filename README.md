@@ -6,7 +6,7 @@ I’ve used this system to water multiple plants (19 in total) during the summer
 
 ![Watering system](/media/pumpsystem.PNG)
 
-**Table of contents**
+# Table of contents
 * [Installation](#Installation)
   - [Software installation](#Software-installation)
   - [Hardware installation](#Hardware-installation)
